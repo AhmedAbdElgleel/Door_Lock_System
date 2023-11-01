@@ -1,0 +1,19 @@
+/*
+ ================================================================================================================================
+ * File Name   : timer_private.h
+ *
+ * Module Name : timer_private
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 26, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef TIMER_PRIVATE_H_
+#define TIMER_PRIVATE_H_
+
+
+
+#endif /* TIMER_PRIVATE_H_ */

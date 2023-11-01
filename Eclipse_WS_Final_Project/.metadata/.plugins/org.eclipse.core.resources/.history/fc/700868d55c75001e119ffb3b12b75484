@@ -1,0 +1,79 @@
+/*
+ ================================================================================================================================
+ * File Name   : uart_private.h
+ *
+ * Module Name : UART
+ * 
+ * Description : Private Header File For Uart Registers Definition and type structure declaration
+ *
+ * Created On  : Oct 25, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef UART_PRIVATE_H_
+#define UART_PRIVATE_H_
+#include "std_types.h"
+
+/****************************************************************************************************
+ *       				Registers type structure declaration for Uart Registers				    *
+ ***************************************************************************************************/
+
+/*Type Structure declaration for I/O data register */
+/*Note:
+ * 		the transmit data buffer and receiver data buffer register share the same i/o address
+ * 		as the transmit data buffer register TXB will be destination for data written to UDR register
+ * 		reading the UDR register location will return the contents of the receive data buffer RXB*/
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 Bit0 :1;
+		uint8 Bit1 :1;
+		uint8 Bit2 :1;
+		uint8 Bit3 :1;
+		uint8 Bit4 :1;
+		uint8 Bit5 :1;
+		uint8 Bit6 :1;
+		uint8 Bit7 :1;
+	} Bits;
+} Uart_UDR_Type;
+
+/*Control and Status Register A*/
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 MPCM_BIT :1;
+		uint8 U2X_BIT  :1;
+		uint8 PE_BIT   :1;
+		uint8 DOR_BIT  :1;
+		uint8 FE_BIT   :1;
+		uint8 UDRE_BIT :1;
+		uint8 TXC_BIT  :1;
+		uint8 RXC_BIT  :1;
+	} Bits;
+} Uart_UCSRA_Type;
+
+/*Control and Status Register B*/
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 MPCM_BIT :1;
+		uint8 U2X_BIT  :1;
+		uint8 PE_BIT   :1;
+		uint8 DOR_BIT  :1;
+		uint8 FE_BIT   :1;
+		uint8 UDRE_BIT :1;
+		uint8 TXC_BIT  :1;
+		uint8 RXC_BIT  :1;
+	} Bits;
+} Uart_UCSRA_Type;
+
+
+
+#endif /* UART_PRIVATE_H_ */

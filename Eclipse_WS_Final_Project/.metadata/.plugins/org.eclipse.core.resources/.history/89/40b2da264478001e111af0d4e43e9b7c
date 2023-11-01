@@ -1,0 +1,23 @@
+/*
+ ================================================================================================================================
+ * File Name   : pir.h
+ *
+ * Module Name : pir
+ * 
+ * Description : Header File for PIR Sensor
+ *
+ * Created On  : Nov 1, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef PIR_H_
+#define PIR_H_
+#include "std_types.h"
+#include "gpio_interface.h"
+
+#define PIR_PORT_ID		PORTC_ID
+#define PIR_PIN_ID		PIN0_ID
+
+
+#endif /* PIR_H_ */

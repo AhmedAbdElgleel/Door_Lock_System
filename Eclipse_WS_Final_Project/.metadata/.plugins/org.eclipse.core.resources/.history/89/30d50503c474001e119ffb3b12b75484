@@ -1,0 +1,19 @@
+/*
+ ================================================================================================================================
+ * File Name   : twi_interface.h
+ *
+ * Module Name : twi_interface
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 27, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef TWI_INTERFACE_H_
+#define TWI_INTERFACE_H_
+
+
+
+#endif /* TWI_INTERFACE_H_ */

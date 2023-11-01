@@ -1,0 +1,19 @@
+/*
+ ================================================================================================================================
+ * File Name   : ext_interrupt_private.h
+ *
+ * Module Name : ext_interrupt_private
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 27, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef EXT_INTERRUPT_PRIVATE_H_
+#define EXT_INTERRUPT_PRIVATE_H_
+
+
+
+#endif /* EXT_INTERRUPT_PRIVATE_H_ */

@@ -1,0 +1,50 @@
+/*
+ ================================================================================================================================
+ * File Name   : timer_interface.h
+ *
+ * Module Name : timer_interface
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 26, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef TIMER_INTERFACE_H_
+#define TIMER_INTERFACE_H_
+#include "std_types.h"
+#include "common_macros.h"
+
+/*******************************************************************************
+ *                         Types Declaration                                   *
+ *******************************************************************************/
+typedef enum
+{
+	NO_CLOCK,F_CPU_CLOCK,F_CPU_8,F_CPU_64,F_CPU_256,F_CPU_1024,EXT_CLK_FALLING,EXT_CLK_RISING,
+	NO_CLOCK_T2=0,F_CPU_CLOCK_T2=1,F_CPU_8_T2=2,F_CPU_32_T2=3,F_CPU_64_T2=4,F_CPU_128_T2=5,F_CPU_256_T2=6,F_CPU_1024_T2=7
+}Timer_Clock;
+
+
+typedef enum
+{
+	Timer0,Timer1,Timer2
+}Timer_Type;
+
+typedef enum
+{
+	Overflow,Compare
+}Timer_Mode;
+
+typedef struct
+{
+	uint32 timer_InitialValue;
+	uint32 timer_compare_MatchValue;
+	Timer_Type  timer_ID;
+	Timer_Clock timer_clock;
+	Timer_Mode  timer_mode;
+
+}Timer_Config;
+
+
+#endif /* TIMER_INTERFACE_H_ */

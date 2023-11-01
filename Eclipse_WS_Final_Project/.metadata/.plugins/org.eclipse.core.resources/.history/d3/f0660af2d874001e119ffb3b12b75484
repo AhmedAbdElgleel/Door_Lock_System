@@ -1,0 +1,19 @@
+/*
+ ================================================================================================================================
+ * File Name   : external_eeprom.h
+ *
+ * Module Name : external_eeprom
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 27, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef EXTERNAL_EEPROM_H_
+#define EXTERNAL_EEPROM_H_
+
+
+
+#endif /* EXTERNAL_EEPROM_H_ */

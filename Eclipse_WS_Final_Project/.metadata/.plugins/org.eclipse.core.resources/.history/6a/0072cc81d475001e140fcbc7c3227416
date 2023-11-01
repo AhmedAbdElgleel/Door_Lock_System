@@ -1,0 +1,29 @@
+/*
+ ================================================================================================================================
+ * File Name   : hmi_ecu.h
+ *
+ * Module Name : hmi_ecu
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 28, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef HMI_ECU_H_
+#define HMI_ECU_H_
+
+#define CREATE_PASSWORD_STAGE 			  0
+#define CHECKING_PASSWORDS_MATCHING_STAGE 1
+#define MAIN_OPTIONS_DISPLAY_STAGE 		  2
+#define OPEN_DOOR_STAGE 				  3
+
+#define PASSWORD_SIZE 5
+#define MATCHED 0x01
+#define UN_MATCHED 0x00
+
+void create_Password(char *a_PasswordArray);
+
+
+#endif /* HMI_ECU_H_ */

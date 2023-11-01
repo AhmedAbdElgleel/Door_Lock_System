@@ -1,0 +1,35 @@
+/*
+ ================================================================================================================================
+ * File Name   : pir.c
+ *
+ * Module Name : pir
+ * 
+ * Description : Source File for PIR Sensor
+ *
+ * Created On  : Nov 1, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#include "pir.h"
+
+void PIR_init()
+{
+	GPIO_setupPinDirection(PIR_PORT_ID, PIR_PIN_ID, PIN_OUTPUT);
+
+}
+
+uint8 PIR_MotionDetected(void)
+{
+	uint8 MotionDetected ;
+	GPIO_readPin(PIR_PORT_ID, PIR_PIN_ID);
+	GPIO_GetPinValue(PIR_PORT, PIR_PIN, &L_Motion);
+	if (L_Motion == 1)
+	{
+		*motion = 1;
+	} else
+	{
+		*motion = 0;
+	}
+}
+

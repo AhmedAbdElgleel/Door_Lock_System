@@ -1,0 +1,19 @@
+/*
+ ================================================================================================================================
+ * File Name   : timer_private.h
+ *
+ * Module Name : TIMERS
+ * 
+ * Description : Private Header File For Timer 0 , Timer 1 , Timer 2 Registers
+ *
+ * Created On  : Oct 26, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef TIMER_PRIVATE_H_
+#define TIMER_PRIVATE_H_
+
+
+
+#endif /* TIMER_PRIVATE_H_ */

@@ -1,0 +1,69 @@
+/*
+ ================================================================================================================================
+ * File Name   : pwm_timer0.c
+ *
+ * Module Name : PWM
+ *
+ * Description: Source file for the PWM
+ *
+ * Created On  : Oct 26, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+
+#include "gpio_interface.h"
+#include "pwm_interface.h"
+#include "timer_private.h"
+
+
+/*******************************************************************************
+ *                         FUNCTIONS definition	                               *
+ *******************************************************************************/
+
+void PWM_init(PWM_config *Config_Ptr)
+{
+	if(Config_Ptr->num == PWM0)
+	{
+		/*Clear FOC0 bit in case using pwm mode FOC0=0 IN TCCR0*/
+		TIMER0_TCCR0_REG.Bits.FOC0_Bit=0;
+
+		/*Choose Fast Pwm Mode via set WGM00=1 AND WGM01=1 IN TCCR0*/
+		TIMER0_TCCR0_REG.Bits.WGM00_Bit=1;
+		TIMER0_TCCR0_REG.Bits.WGM01_Bit=1;
+
+		/*choosint the mode inverting or non inverting*/
+		TIMER0_TCCR0_REG.Byte|=(Config_Ptr->mode)l
+
+
+		TCCR0=(1<<WGM01)|(1<<WGM00)|(conf->mode)|(conf->prescaleTimer);
+
+		GPIO_setupPinDirection(PORTB_ID, PIN3_ID, PIN_OUTPUT);
+
+		TIMER0_OCR0_REG.Byte=(256*conf->duty_cycle)/100;
+
+	}
+
+	else if(Config_Ptr->num == PWM2)
+	{
+		TCCR2=(1<<WGM21)|(1<<WGM20)|(conf->mode)|(conf->prescaleTimer);
+
+		GPIO_setupPinDirection(PORTD_ID, PIN7_ID, PIN_OUTPUT);
+
+		TIMER2_OCR2_REG.Byte=(256*conf->duty_cycle)/100;
+
+	}
+}
+
+void PWM_setDutyCycle(Pwm_Number a_pwmNum,uint8 a_duty)
+{
+	if(a_pwmNum == PWM0)
+	{
+		TIMER0_OCR0_REG.Byte=(uint8)( ((uint32) (256*a_duty) )/100 );
+	}
+
+	else if(a_pwmNum == PWM2)
+	{
+		TIMER2_OCR2_REG.Byte=(uint8)( ((uint32) (256*a_duty) )/100 );
+	}
+}

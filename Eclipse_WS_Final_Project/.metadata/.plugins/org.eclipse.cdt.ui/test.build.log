@@ -1,0 +1,38 @@
+11:54:35 **** Incremental Build of configuration Debug for project test ****
+make all 
+Building file: ../timer.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"timer.d" -MT"timer.o" -c -o "timer.o" "../timer.c"
+../timer.c: In function 'Timer_setCallBack':
+../timer.c:108: warning: function return types not compatible due to 'volatile'
+../timer.c:113: warning: function return types not compatible due to 'volatile'
+../timer.c:118: warning: function return types not compatible due to 'volatile'
+Finished building: ../timer.c
+ 
+Building target: test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,test.map -mmcu=atmega32 -o "test.elf"  ./gpio.o ./main.o ./timer.o   
+Finished building target: test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S test.elf  >"test.lss"
+Finished building: test.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3992 bytes (12.2% Full)
+(.text + .data + .bootloader)
+
+Data:         15 bytes (0.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+11:54:36 Build Finished. 0 errors, 3 warnings. (took 948ms)
+

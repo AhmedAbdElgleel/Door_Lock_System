@@ -1,0 +1,54 @@
+/*
+ ================================================================================================================================
+ * File Name   : control_ech.h
+ *
+ * Module Name : control_ech
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 29, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef CONTROL_ECH_H_
+#define CONTROL_ECH_H_
+
+#include "std_types.h"
+
+#define RECEIVING_PASSWORDS_STAGE 			0
+#define CHECK_PASSWORDS_MATCHING_STAGE 		1
+#define SAVE_PASSWORD_INTO_EEPROM_STAGE 	2
+#define MAIN_MENU_OPTION_STAGE 				3
+#define OPEN_DOOR 							4
+
+#define PASSWORD_SIZE 	5
+#define MATCHED 			TRUE
+#define NOT_MATCHED 		FALSE
+
+void receive_Password(uint8* a_PasswordArray);
+
+
+uint8 check_TwoPasswords(uint8 *Password_array1,uint8 *Password_array2);
+
+
+/*
+ * Description :
+ * Functional responsible for :
+ * Syncing the UART in the Control_ECU and the UART in HMI_ECU
+ * Receiving data from the UART in the HMI_ECU
+ */
+uint8 recieve_Byte(void);
+
+/*
+ * Description :
+ * Functional responsible for :
+ * Syncing the UART in the Control_ECU and the UART in HMI_ECU
+ * Sending data to the UART in the HMI_ECU
+ */
+void send_Byte(uint8 byte);
+
+
+void timer1_SetRequiredCallBackFunction(void)
+
+#endif /* CONTROL_ECH_H_ */

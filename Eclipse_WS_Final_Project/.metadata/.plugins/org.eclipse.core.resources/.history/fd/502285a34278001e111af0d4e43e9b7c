@@ -1,0 +1,19 @@
+/*
+ ================================================================================================================================
+ * File Name   : pir.c
+ *
+ * Module Name : pir
+ * 
+ * Description : Source File for PIR Sensor
+ *
+ * Created On  : Nov 1, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#include "pir.h"
+
+void PIR_init()
+{
+	GPIO_setupPinDirection(PIR_, pin_num, direction)
+}

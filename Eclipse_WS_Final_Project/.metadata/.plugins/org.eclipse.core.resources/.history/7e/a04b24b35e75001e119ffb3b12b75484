@@ -1,0 +1,118 @@
+/*
+ ================================================================================================================================
+ * File Name   : uart_private.h
+ *
+ * Module Name : UART
+ * 
+ * Description : Private Header File For Uart Registers Definition and type structure declaration
+ *
+ * Created On  : Oct 25, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef UART_PRIVATE_H_
+#define UART_PRIVATE_H_
+#include "std_types.h"
+
+/****************************************************************************************************
+ *       				Registers type structure declaration for Uart Registers				    *
+ ***************************************************************************************************/
+
+/*Type Structure declaration for I/O data register */
+/*Note:
+ * 		the transmit data buffer and receiver data buffer register share the same i/o address
+ * 		as the transmit data buffer register TXB will be destination for data written to UDR register
+ * 		reading the UDR register location will return the contents of the receive data buffer RXB*/
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 Bit0 :1;
+		uint8 Bit1 :1;
+		uint8 Bit2 :1;
+		uint8 Bit3 :1;
+		uint8 Bit4 :1;
+		uint8 Bit5 :1;
+		uint8 Bit6 :1;
+		uint8 Bit7 :1;
+	} Bits;
+} Uart_UDR_Type;
+
+/*Type Structure declaration for Control and Status Register A*/
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 MPCM_BIT :1;
+		uint8 U2X_BIT  :1;
+		uint8 PE_BIT   :1;
+		uint8 DOR_BIT  :1;
+		uint8 FE_BIT   :1;
+		uint8 UDRE_BIT :1;
+		uint8 TXC_BIT  :1;
+		uint8 RXC_BIT  :1;
+	} Bits;
+} Uart_UCSRA_Type;
+
+/*Type Structure declaration for Control and Status Register B*/
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 TXB8_BIT :1;
+		uint8 RXB8_BIT :1;
+		uint8 UCSZ2_BIT:1;
+		uint8 TXEN_BIT  :1;
+		uint8 RXEN_BIT   :1;
+		uint8 UDRIE_BIT :1;
+		uint8 TXCIE_BIT  :1;
+		uint8 RXCIE_BIT  :1;
+	} Bits;
+} Uart_UCSRB_Type;
+
+/*Type Structure declaration for Control and Status Register C*/
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 UCPOL_BIT :1;
+		uint8 UCSZ0_BIT :1;
+		uint8 UCSZ1_BIT:1;
+		uint8 USBS_BIT  :1;
+		uint8 UPM0_BIT   :1;
+		uint8 UPM1_BIT :1;
+		uint8 UMSEL_BIT  :1;
+		uint8 URSEL_BIT  :1;
+	} Bits;
+} Uart_UCSRC_Type;
+
+/*Type Structure declaration for Baud Rate Rate Registers*/
+/*
+ * Note:
+ * 		UBRRH AND UBRRL registers are not mapped to the same I/O address location
+ * 		or combined into a single 16-bit register. They are separate registers with distinct I/O address locations.
+ * */
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 BIT0 :1;
+		uint8 BIT1 :1;
+		uint8 BIT2 :1;
+		uint8 BIT3 :1;
+		uint8 BIT4 :1;
+		uint8 BIT5 :1;
+		uint8 BIT6 :1;
+		uint8 BIT7 :1;
+	} Bits;
+} Uart_UBRRL_Type;
+
+
+
+#endif /* UART_PRIVATE_H_ */

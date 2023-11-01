@@ -1,0 +1,56 @@
+/*
+ ================================================================================================================================
+ * File Name   : twi_private.h
+ *
+ * Module Name : twi_private
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 27, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef TWI_PRIVATE_H_
+#define TWI_PRIVATE_H_
+#include "std_types.h"
+/*******************************************************************************
+ *                  Registers type structure declaration                       *
+ *******************************************************************************/
+
+/* TWI  Register TWBR type structure declarations */
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 TWBR0_BIT :1;
+		uint8 TWBR1_BIT :1;
+		uint8 TWBR2_BIT :1;
+		uint8 TWBR3_BIT :1;
+		uint8 TWBR4_BIT :1;
+		uint8 TWBR5_BIT :1;
+		uint8 TWBR6_BIT :1;
+		uint8 TWBR7_BIT :1;
+	}Bits;
+}TWI_TWBR_Reg_Type;
+
+/* TWI  Register TWCR type structure declarations */
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 TWIE_BIT  :1;
+		uint8 		    :1;
+		uint8 TWEN_BIT  :1;
+		uint8 TWBR3_BIT :1;
+		uint8 TWBR4_BIT :1;
+		uint8 TWBR5_BIT :1;
+		uint8 TWBR6_BIT :1;
+		uint8 TWBR7_BIT :1;
+	}Bits;
+}TWI_TWBR_Reg_Type;
+
+
+#endif /* TWI_PRIVATE_H_ */

@@ -1,0 +1,59 @@
+/*
+ ================================================================================================================================
+ * File Name   : pwm_timer0.c
+ *
+ * Module Name : PWM
+ *
+ * Description: Source file for the PWM-Timer0
+ *
+ * Created On  : Oct 26, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+
+#include "gpio_interface.h"
+#include "pwm_interface.h"
+#include "timer_private.h"
+
+
+/*******************************************************************************
+ *                         FUNCTIONS definition	                               *
+ *******************************************************************************/
+
+void PWM_init(PWM_config *conf)
+{
+	if(conf->num == PWM0)
+	{
+		TCCR0=(1<<WGM01)|(1<<WGM00)|(conf->mode)|(conf->prescaleTimer);
+
+		DDRB|=(1<<PB3);
+		GPIO_setupPinDirection(PORTB_ID, PIN3_ID, PIN_OUTPUT);
+
+		TIMER0_OCR0_REG.Byte=(256*conf->duty_cycle)/100;
+
+	}
+
+	else if(conf->num == PWM2)
+	{
+		TCCR2=(1<<WGM21)|(1<<WGM20)|(conf->mode)|(conf->nt2);
+
+		DDRD|=(1<<PD7);
+
+		OCR2=(256*conf->duty_cycle)/100;
+
+	}
+}
+
+void PWM_setDutyCycle(uint8 pwm_no,uint8 duty)
+{
+	if(pwm_no == 0)
+	{
+		OCR0=(uint8)( ((uint32) (256*duty) )/100 );
+	}
+
+	else if(pwm_no == PWM2)
+	{
+		OCR2=(uint8)( ((uint32) (256*duty) )/100 );
+	}
+}

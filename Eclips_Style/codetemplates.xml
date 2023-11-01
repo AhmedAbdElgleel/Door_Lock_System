@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="org.eclipse.cdt.ui.text.codetemplates.filecomment_context" deleted="false" description="Comment for created C/C++ files" enabled="true" id="org.eclipse.cdt.ui.text.codetemplates.filecomment" name="filecomment">/*&#13;
+ ================================================================================================================================&#13;
+ * File Name   : ${file_name}&#13;
+ *&#13;
+ * Module Name : ${file_base}&#13;
+ * &#13;
+ * Description : &#13;
+ *&#13;
+ * Created On  : ${date}&#13;
+ *&#13;
+ * Author Name : Ahmed Abd Elgleel&#13;
+ ================================================================================================================================&#13;
+ */</template></templates>

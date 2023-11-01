@@ -1,0 +1,85 @@
+/*
+ ================================================================================================================================
+ * File Name   : dc_motor.h
+ *
+ * Module Name : dc_motor
+ *
+ * Description : Header File For Dc Motor
+ *
+ * Created On  : Oct 13, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef DC_MOTOR_H_
+#define DC_MOTOR_H_
+
+#include "std_types.h"
+
+/*
+ * Drive Description:
+ * 	This Drive Designed to make you have a ability to just use one motor (choose whatever you want) or Choose two motors
+ * 	just choose to use the first motor or the second motor or both of them
+ * 	where you need to just add some hash for example :
+ * 		1-if u want choose First Motor and u want to control speed with pwm  : use #define USE_FIRST_DC_MOTOR_WITH_CONTROL_SPEED
+ * 		2-if u want choose First Motor without any control (Enable =5v)	   : use #define USE_FIRST_DC_MOTOR_WITHOUT_CONTROL_SPEED
+ * 		3-if u want choose Second Motor and u want to control speed with pwm : use #define USE_SECOND_DC_MOTOR_WITH_CONTROL_SPEED
+ * 		4-if u want choose SECOND Motor without any control (Enable =5v)     : use #define USE_SECOND_DC_MOTOR_WITHOUT_CONTROL_SPEED
+ * */
+/*******************************************************************************
+ *                               Definition                                    *
+ *******************************************************************************/
+#define USE_FIRST_DC_MOTOR_WITH_CONTROL_SPEED
+/*#define USE_SECOND_DC_MOTOR_WITH_CONTROL_SPEED*/
+
+#if !defined(USE_FIRST_DC_MOTOR_WITH_CONTROL_SPEED) && !defined(USE_FIRST_DC_MOTOR_WITHOUT_CONTROL_SPEED)&&!defined(USE_SECOND_DC_MOTOR_WITH_CONTROL_SPEED)&&!defined(USE_SECOND_DC_MOTOR_WITHOUT_CONTROL_SPEED)
+#error "Choose the Motor and mode u want to use"
+#endif
+
+
+/*------------------------Don`t Remove any hash from this section----------------*/
+#define DC_MOTOR_PORT_ID 				PORTB_ID
+#define FIRST_DC_MOTOR_IN1_PIN_ID 		PIN0_ID
+#define FIRST_DC_MOTOR_IN2_PIN_ID 		PIN1_ID
+#define SECOND_DC_MOTOR_IN3_PIN_ID 		PIN3_ID
+#define SECOND_DC_MOTOR_IN4_PIN_ID 		PIN4_ID
+
+#define DC_MOTOR_ENABLE_PORT_ID 		PORTB_ID
+#define FIRST_DC_MOTOR_ENABLE_PIN_ID  	PIN3_ID
+#define SECOND_DC_MOTOR_ENABLE_PIN_ID  	PIN3_ID
+
+#define FIRST_DC_MOTOR		1				/*ID For first motor*/
+#define SECOND_DC_MOTOR		2				/*ID For second motor*/
+
+#define STOP_ROTATION			0
+#define ROTATE_CLOCKWISE		1
+#define ROTATE_ANTI_CLOCKWISE	2
+
+/*******************************************************************************
+ *                              Functions Prototypes                           *
+ *******************************************************************************/
+
+/* Description:
+ * The Function to initialize the motors pin and setup the direction for the two motor
+ * via using GPIO driver.
+ */
+void DcMOTOR_init(void);
+
+/* Description:
+ * The function that rotate the DC Motor clock wise ,anti-clockwise or stop the motor
+ * In this Function we can control the speed via using PWM
+ */
+#if defined(USE_FIRST_DC_MOTOR_WITH_CONTROL_SPEED) ||defined( USE_SECOND_DC_MOTOR_WITH_CONTROL_SPEED)
+void DCMOTOR_rotateWithControl(uint8 a_state,uint8 a_speed,uint8 a_motorNum,Pwm_Number a_PwmNumUsed);
+#endif
+
+/* Description:
+ * The function that rotate the DC Motor clock wise ,anti-clockwise or stop the motor
+ * In this Function we cannot control the speed where
+ * in case clockwise and anti-clockwise the motor will rotate with max speed
+ */
+#if defined(USE_FIRST_DC_MOTOR_WITHOUT_CONTROL_SPEED) || defined( USE_SECOND_DC_MOTOR_WITHOUT_CONTROL_SPEED)
+void DCMOTOR_rotateWithoutControl(uint8 a_state,uint8 a_motorNum)
+#endif
+
+#endif /* DC_MOTOR_H_ */

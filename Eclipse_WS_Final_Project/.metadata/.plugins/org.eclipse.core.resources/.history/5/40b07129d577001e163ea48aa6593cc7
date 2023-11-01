@@ -1,0 +1,70 @@
+/*
+ ================================================================================================================================
+ * File Name   : control_ech.h
+ *
+ * Module Name : control_ech
+ * 
+ * Description : Source File to The Control ECU
+ *
+ * Created On  : Oct 28, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef CONTROL_ECH_H_
+#define CONTROL_ECH_H_
+
+#include "std_types.h"
+
+/*******************************************************************************
+ *                                Definitions                                  *
+ *******************************************************************************/
+#define RECEIVING_PASSWORDS_STAGE 			0
+#define CHECK_PASSWORDS_MATCHING_STAGE 		1
+#define SAVE_PASSWORD_INTO_EEPROM_STAGE 	2
+#define MAIN_MENU_OPTION_STAGE 				3
+#define OPEN_DOOR_STAGE						4
+
+#define PASSWORD_SIZE 						5
+#define MATCHED 						  TRUE
+#define NOT_MATCHED 					  FALSE
+
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+
+/*
+ * Function Description :
+ * used to increment a global variable to indicate number of interrupts happend for timer1
+ */
+void timer1_SetRequiredCallBackFunction(void);
+
+/*
+ * Function Description :
+ * Receiving Password entered by the user from HMI_ECU and store it in array defined global
+ */
+void receive_Password(uint8* a_PasswordArray);
+
+/*
+ * Function Description :
+ * 1. Taking two passwords
+ * 2. Check if both are the same
+ * 3. return if they are matched or not
+ */
+uint8 check_TwoPasswords(uint8 *Password_array1,uint8 *Password_array2);
+
+/*
+ * Function Description :
+ * synchronising the UART in the Control_ECU and the UART in HMI_ECU
+ * Receiving data from the UART in the HMI_ECU
+ */
+uint8 recieve_Byte(void);
+
+/*
+ * Function Description :
+ * synchronising the UART in the Control_ECU and the UART in HMI_ECU
+ * Sending data to the UART in the HMI_ECU
+ */
+void send_Byte(uint8 byte);
+
+#endif /* CONTROL_ECH_H_ */

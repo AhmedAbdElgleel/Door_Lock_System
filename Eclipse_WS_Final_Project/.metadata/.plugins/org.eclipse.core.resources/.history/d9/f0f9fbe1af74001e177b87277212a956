@@ -1,0 +1,84 @@
+/*
+ ================================================================================================================================
+ * File Name   : ext_interrupt.c
+ *
+ * Module Name : External Interrupts
+ *
+ * Description : Header File For EXT_INT0, EXT_INT1, EXT_INT2 Modules
+ *
+ * Created On  : Oct 26, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+
+#ifndef EXT_INTERRUPT_INTERFACE_H_
+#define EXT_INTERRUPT_INTERFACE_H_
+
+
+/*******************************************************************************
+ *                              	Includes		                           *
+ *******************************************************************************/
+
+#include"std_types.h"
+
+/*******************************************************************************
+ *                              Type definition		                           *
+ *******************************************************************************/
+
+/*
+ * Description :
+ * used to discuss which external interrupt we will enable and it puts the value
+ * in GICR register
+ */
+typedef enum{
+	INT0_ID=64,INT1_ID=128,INT2_ID=32
+}Interrupt_Number;
+
+/*
+ * Description :
+ * used to discuss the way which an external interrupt been done
+ */
+typedef enum{
+	ANY_LOGIC_CHANGE=1,FALLING_EDGE=2,RISING_EDGE=3
+}Interrupt_Mode;
+
+/*
+ * Description :
+ * used to discuss the way which an external interrupt been done
+ */
+typedef struct{
+	uint8 intNumber;
+	uint8 intMode;
+}Interrupt_Config;
+
+
+/*******************************************************************************
+ *                              Functions Prototypes                           *
+ *******************************************************************************/
+
+/*
+ * Description :
+ * A function to initialize our external interrupt
+ */
+void INT_init(const Interrupt_Config* config);
+
+/*
+ * Description :
+ * A function to initialize our external interrupt
+ */
+void INT_deInit(const Interrupt_Config* config);
+
+/*
+ * Description :
+ * A function to change the interrupt cause mode
+ */
+void INT_changeConfig(const Interrupt_Config* config);
+
+/*
+ * Description :
+ * A function to set ISR function code
+ */
+void INT_setISR(void (*ptr)(void) , uint8 interrupt_number);
+
+#endif /* EXT_INTERRUPT_INTERFACE_H_ */

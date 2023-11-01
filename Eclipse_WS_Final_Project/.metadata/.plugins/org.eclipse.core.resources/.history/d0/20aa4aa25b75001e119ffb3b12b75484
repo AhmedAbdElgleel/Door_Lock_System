@@ -1,0 +1,35 @@
+/*
+ ================================================================================================================================
+ * File Name   : uart_private.h
+ *
+ * Module Name : UART
+ * 
+ * Description : Private Header File For Uart Registers Definition and type structure declaration
+ *
+ * Created On  : Oct 25, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef UART_PRIVATE_H_
+#define UART_PRIVATE_H_
+#include "std_types.h"
+
+typedef union
+{
+	uint8 Byte;
+	struct
+	{
+		uint8 TOIE0_Bit :1;
+		uint8 OCIE0_Bit :1;
+		uint8 TOIE1_Bit :1;
+		uint8 OCIE1B_Bit :1;
+		uint8 OCIE1A_Bit :1;
+		uint8 TICIE1_Bit :1;
+		uint8 TOIE2_Bit :1;
+		uint8 OCIE2_Bit :1;
+	} Bits;
+} Timers_TIMSK_Type;
+
+
+#endif /* UART_PRIVATE_H_ */

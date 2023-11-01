@@ -1,0 +1,19 @@
+/*
+ ================================================================================================================================
+ * File Name   : uart_interface.h
+ *
+ * Module Name : UART
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 25, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef UART_INTERFACE_H_
+#define UART_INTERFACE_H_
+
+
+
+#endif /* UART_INTERFACE_H_ */

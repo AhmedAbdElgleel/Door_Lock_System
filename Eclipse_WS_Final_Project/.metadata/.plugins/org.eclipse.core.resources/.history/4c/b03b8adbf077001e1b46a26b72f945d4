@@ -1,0 +1,68 @@
+/*
+ ================================================================================================================================
+ * File Name   : hmi_ecu.h
+ *
+ * Module Name : hmi_ecu
+ * 
+ * Description : Header File to The HMI ECU
+ *
+ * Created On  : Oct 28, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef HMI_ECU_H_
+#define HMI_ECU_H_
+
+#include "std_types.h"
+
+#define CREATE_PASSWORD_STAGE 			  0
+#define CHECKING_PASSWORDS_MATCHING_STAGE 1
+#define MAIN_OPTIONS_STAGE 				  2
+#define OPEN_DOOR_STAGE 				  3
+
+#define PASSWORD_SIZE 					  5
+#define MATCHED 						255
+#define NOT_MATCHED 					254
+
+/*
+ * Function Description :
+ * Take the password entered by the user and Store it in the array passed to it
+ */
+void create_Password(uint8 *a_PasswordArray);
+
+/*
+ * Description :
+ * Function responsible for :
+ * 1-Sending Password entered by the user from HMI_ECU TO Control_ECU through UART
+ */
+void send_Password(uint8 *Password_ptr1);
+
+/*
+ * Description :
+ * Function responsible for :
+ * 1-Sending Password entered by the user from HMI_ECU TO Control_ECU through UART
+ */
+uint8 Password_Checker(void);
+
+/*
+ * Function Description :
+ * used to increment a global variable to indicate number of interrupts happend for timer1
+ */
+void timer1_SetRequiredCallBackFunction(void);
+
+/*
+ * Function Description :
+ * synchronising the UART in the Control_ECU and the UART in HMI_ECU
+ * Receiving data from the UART in the HMI_ECU
+ */
+uint8 recieve_Byte(void);
+
+/*
+ * Description :
+ * synchronising the UART in the Control_ECU and the UART in HMI_ECU
+ * Sending data to the UART in the HMI_ECU
+ */
+void send_Byte(uint8 byte);
+
+#endif /* HMI_ECU_H_ */

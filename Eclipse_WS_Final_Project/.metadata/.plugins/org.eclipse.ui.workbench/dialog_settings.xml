@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="PreferencesImportWizard">
+		<item key="" value="E:\Embedded(AVR) Diploma\Interfacing_02\Projects\Door_Lock_System\Eclips_Style\eclips_build_keys.epf"/>
+		<item key="" value="E:\Embedded(AVR) Diploma\Eclips_Style\eclips_build_keys.epf"/>
+		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="E:\Embedded(AVR) Diploma\Eclips_Style\eclips_build_keys.epf"/>
+			<item value="E:\Embedded(AVR) Diploma\Interfacing_02\Projects\Door_Lock_System\Eclips_Style\eclips_build_keys.epf"/>
+		</list>
+	</section>
+</section>

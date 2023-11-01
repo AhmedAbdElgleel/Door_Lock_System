@@ -1,0 +1,19 @@
+/*
+ ================================================================================================================================
+ * File Name   : timer_interface.h
+ *
+ * Module Name : timer_interface
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 26, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef TIMER_INTERFACE_H_
+#define TIMER_INTERFACE_H_
+
+
+
+#endif /* TIMER_INTERFACE_H_ */

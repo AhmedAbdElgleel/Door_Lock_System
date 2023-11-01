@@ -1,0 +1,29 @@
+/*
+ ================================================================================================================================
+ * File Name   : control_ech.h
+ *
+ * Module Name : control_ech
+ * 
+ * Description : 
+ *
+ * Created On  : Oct 29, 2023
+ *
+ * Author Name : Ahmed Abd Elgleel
+ ================================================================================================================================
+ */
+#ifndef CONTROL_ECH_H_
+#define CONTROL_ECH_H_
+
+#include "std_types.h"
+
+#define RECEIVING_PASSWORDS_STAGE 		0
+#define CHECK_PASSWORDS_MATCHING_STAGE 	1
+#define SAVE_PASSWORDS 					2
+#define RECEIVE_AND_CHECK_WITH_EEPROM 	3
+#define OPEN_DOOR 4
+
+#define PASSWORD_SIZE 5
+#define MATCHED 0x01
+#define UN_MATCHED 0x00
+
+#endif /* CONTROL_ECH_H_ */
