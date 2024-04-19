@@ -2,6 +2,8 @@
 
 Welcome to the GitHub repository for the Door Locker Security System project! This  project is designed to implement a secure door locking and unlocking system using two ATmega32 Microcontrollers. The system features a layered architecture and incorporates various components like HMI_ECU (Human Machine Interface), Control_ECU, LCD, Keypad, DC-Motor, EEPROM, I2C, UART, Timer, and Buzzer drivers. This readme will guide you through the project's specifications and requirements.
 
+![Door Lock Project](https://drive.google.com/uc?id=1eSbhn4_VdklzxSSG4xooJ58N9n2Lk8Nn)
+
 ## System Requirements
 
 ### Hardware Requirements
