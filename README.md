@@ -4,6 +4,8 @@ Welcome to the GitHub repository for the Door Locker Security System project! Th
 
 ![Door Lock Project](https://drive.google.com/uc?id=1eSbhn4_VdklzxSSG4xooJ58N9n2Lk8Nn)
 
+[Project Simulation Link](https://www.linkedin.com/posts/ahmed-abd-elgleel-95a675252_embeddedsystems-innovation-engineeringexcellence-activity-7126581113010929664-mvUN?utm_source=share&utm_medium=member_desktop)
+
 ## System Requirements
 
 ### Hardware Requirements
